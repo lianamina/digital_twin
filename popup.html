@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>Customize Your Chatbot</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <h1>🤖 Customize Your Chatbot</h1>
+            <p>Personalize how the chatbot represents you on LinkedIn</p>
+        </div>
+
+        <form id="personality-form">
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                
+                <div class="form-group">
+                    <label for="apiKey">Cerebrum API Key (Optional)</label>
+                    <input type="password" id="apiKey" placeholder="Enter your Cerebrum API key for AI responses">
+                    <small class="form-help">Leave empty to use pattern-based responses. With API key, get smarter AI responses.</small>
+                    <div style="display: flex; gap: 8px; margin-top: 8px;">
+                        <button type="button" id="test-api" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">Test API Connection</button>
+                        <button type="button" id="debug-storage" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">Debug Storage</button>
+                    </div>
+                    <div id="api-status" style="margin-top: 4px; font-size: 12px; display: none;"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="headline">Professional Headline</label>
+                    <input type="text" id="headline" placeholder="e.g., Software Engineer at Google">
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">About You</label>
+                    <textarea id="bio" rows="4" placeholder="Tell others about yourself, your background, interests, and what makes you unique..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="responseStyle">Response Style</label>
+                    <select id="responseStyle">
+                        <option value="friendly">Friendly & Approachable</option>
+                        <option value="professional">Professional & Formal</option>
+                        <option value="casual">Casual & Relaxed</option>
+                        <option value="enthusiastic">Enthusiastic & Energetic</option>
+                        <option value="thoughtful">Thoughtful & Analytical</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Common Questions & Responses</h2>
+                <p class="section-description">Customize how you'd respond to frequently asked questions</p>
+                
+                <div class="response-group">
+                    <label for="workResponse">How would you describe your work experience?</label>
+                    <textarea id="workResponse" rows="2" placeholder="e.g., I have 5 years of experience in software development, specializing in web applications..."></textarea>
+                </div>
+
+                <div class="response-group">
+                    <label for="skillsResponse">What are your key skills and expertise?</label>
+                    <textarea id="skillsResponse" rows="2" placeholder="e.g., I'm proficient in JavaScript, Python, and cloud technologies. I also have strong problem-solving skills..."></textarea>
+                </div>
+
+                <div class="response-group">
+                    <label for="goalsResponse">What are your career goals or aspirations?</label>
+                    <textarea id="goalsResponse" rows="2" placeholder="e.g., I'm looking to transition into a leadership role where I can mentor junior developers..."></textarea>
+                </div>
+
+                <div class="response-group">
+                    <label for="contactResponse">How should people contact or connect with you?</label>
+                    <textarea id="contactResponse" rows="2" placeholder="e.g., Feel free to connect with me on LinkedIn or reach out via email at..."></textarea>
+                </div>
+
+                <div class="response-group">
+                    <label for="interestsResponse">What are your interests outside of work?</label>
+                    <textarea id="interestsResponse" rows="2" placeholder="e.g., I enjoy hiking, photography, and contributing to open-source projects..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Additional Customization</h2>
+                
+                <div class="form-group">
+                    <label for="customPrompts">Custom Questions & Responses</label>
+                    <div id="custom-responses">
+                        <!-- Dynamic custom response pairs will be added here -->
+                    </div>
+                    <button type="button" id="add-custom" class="btn-secondary">+ Add Custom Response</button>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="save-btn" class="btn-primary">Save Personality</button>
+                <button type="button" id="reset-btn" class="btn-secondary">Reset to Default</button>
+            </div>
+        </form>
+
+        <div class="status-message" id="status-message" style="display: none;"></div>
+        
+        <div class="footer">
+            <p>This data is stored locally on your device and is never shared.</p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 
